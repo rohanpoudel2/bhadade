@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container } from '@mui/system';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './app.scss';
+import Login from './pages/login/Login';
+import Dashboard from './pages/dashboard/Dashboard';
+import { client } from './PocketBase';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [user, setUser] = useState(false)
+
+  useEffect(() => {
+    if (client.authStore.isValid) {
+      setUser(true)
+    }
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Container>
+          <Routes>
+            <Route path='/'>
+              {user ?
+                <Route index element={<Dashboard />} />
+                :
+                <Route index element={<Login />} />
+              }
+            </Route>
+          </Routes>
+        </Container>
+      </BrowserRouter>
     </div>
   );
 }
