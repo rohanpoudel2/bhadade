@@ -14,22 +14,26 @@ function App() {
     if (client.authStore.isValid) {
       setUser(true)
     }
+    console.log(client.authStore)
   }, [])
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Container>
-          <Routes>
-            <Route path='/'>
-              {user ?
-                <Route index element={<Dashboard />} />
-                :
-                <Route index element={<Login />} />
-              }
-            </Route>
-          </Routes>
-        </Container>
+        <Routes>
+          <Route path='/'>
+            {user ?
+              <Route index element={<Dashboard />} />
+              :
+
+              <Route index element={
+                <Container>
+                  <Login />
+                </Container>
+              } />
+            }
+          </Route>
+        </Routes>
       </BrowserRouter>
     </div>
   );

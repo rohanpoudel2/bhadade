@@ -10,6 +10,7 @@ const Login = () => {
   const [registerForm, setRegisterForm] = useState(false)
   const [error, setError] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
+  const [successMsg, setSuccessMsg] = useState('Success')
 
   const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -20,6 +21,7 @@ const Login = () => {
         password: data.password,
         passwordConfirm: data.password,
       }).then(() => {
+        setSuccessMsg('Congratulations Your Account has been created')
         setShowSuccess(true)
       }).catch((error) => {
         setShowSuccess(false)
@@ -28,6 +30,7 @@ const Login = () => {
     } else {
       await client.users.authViaEmail(data.email, data.password)
         .then(() => {
+          setSuccessMsg('You have successfully logged in, Please wait you will be redirected shortly !!!')
           setShowSuccess(true)
         }).catch((error) => {
           setShowSuccess(false)
@@ -44,7 +47,7 @@ const Login = () => {
       </div>
       <div className="overlay">
         {showSuccess &&
-          <SnackBar />
+          <SnackBar success={showSuccess} msg={successMsg} />
         }
         <div className="login-elements">
           <div className="greetings">
@@ -89,6 +92,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      {showSuccess && window.location.replace('/')}
     </div >
   )
 }

@@ -1,0 +1,94 @@
+@import '../../styles/colors.scss';
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 200px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0px;
+  padding-left: 50px;
+
+
+  .left {
+    flex: 6;
+    margin-right: 50px;
+
+    .searchbar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      input {
+        width: 100%;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 30px;
+        outline: none;
+      }
+
+      i {
+        position: absolute;
+        left: 5px;
+        color: $primary-color;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    flex: 4;
+    padding: 0px 20px;
+
+    .icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .icon {
+        margin-right: 20px;
+        background-color: white;
+        padding: 6px;
+        color: $primary-color;
+        border-radius: 50px;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .notification {
+        background-color: red;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 5px;
+        right: 2px;
+        border-radius: 50px;
+      }
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      span {
+        margin-left: 10px;
+        font-weight: 600;
+      }
+    }
+  }
+}
