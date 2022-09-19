@@ -1,0 +1,15 @@
+@import '../../styles/colors.scss';
+
+.overview {
+  display: flex;
+  margin-left: 250px;
+  padding-top: 100px;
+
+  .left {
+    flex: 6;
+  }
+
+  .right {
+    flex: 4;
+  }
+}

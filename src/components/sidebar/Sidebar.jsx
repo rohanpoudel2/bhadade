@@ -7,7 +7,7 @@ const Sidebar = () => {
         <h1>GharBeti</h1>
       </div>
       <div className="sidebar-items">
-        <div className="sidebar-item">
+        <div className="sidebar-item active">
           <i class="fa-solid fa-house"></i>
           <span>Overview</span>
         </div>

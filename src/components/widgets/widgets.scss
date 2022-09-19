@@ -1,15 +1,17 @@
 .widgets {
   display: flex;
-  margin-left: 250px;
-  padding-top: 100px;
   align-items: center;
 
   .widget {
-    width: 150px;
+    width: 100%;
     background-color: white;
     margin-right: 20px;
     padding: 20px;
     border-radius: 5px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
 
     .title {
       font-size: 12px;

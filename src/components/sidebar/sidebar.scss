@@ -28,7 +28,10 @@
       margin-top: 10px;
       margin-bottom: 20px;
       padding: 10px 30px 10px 20px;
-      transition: 0.5s ease-in-out;
+      transition: 0.2s ease-in-out;
+      border-radius: 0px 20px 20px 0px;
+
+
 
       i {
         font-size: 20px;
@@ -41,13 +44,16 @@
 
       &:hover {
         background-color: $primary-color;
-        border-radius: 0px 20px 20px 0px;
         color: white;
         cursor: pointer;
-        padding: 20px;
-        transition: 0.5s ease-in-out;
+        transition: 0.2s ease-in-out;
       }
 
+    }
+
+    .active {
+      background-color: $primary-color;
+      color: white;
     }
   }
 }
